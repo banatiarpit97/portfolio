@@ -1,0 +1,148 @@
+.navbar{
+  margin-bottom: 0;
+}
+.contact{
+  height: 250px;
+  width: 100%;
+}
+.allcontact{
+  background: linear-gradient(#fff,#63e6c2);
+  height: 75%;
+  height: 600px;
+}
+.top{
+  margin-top: 2%;
+}
+.allcontact .col-md-4{
+  /*text-align: center;*/
+  /*font-size: 1.5em;*/
+}
+.allcontact .heading{
+  text-align: center;
+  font-size: 2.3em;
+  margin-top: 5%;
+}
+.allcontact .heading .material-icons{
+  margin-right: 2%;
+  transform: translateY(2px);
+}
+.allcontact hr{
+  width: 2px;
+  border-width: 140px;
+  position: absolute;
+  border-color: #dad7d7
+}
+md-content{
+  background-color: transparent;
+}
+md-input-container{
+  margin-top: 5px;
+}
+md-input-container .md-input{
+  width: 70%;
+}
+.mail form{
+  padding-left: 10%;
+}
+.contact{
+  height: 300px;
+}
+i.material-icons{
+  margin: 0 !important;
+}
+.genInfo{
+  padding-left: 10%;
+    font-size: 1.6em;
+    margin-top: 7%;
+}
+.genInfo .row{
+  margin-top: 3%;
+}
+.genInfo .row .value{
+  font-weight: bold;
+  padding-left: 0;
+}
+.genInfo .name{
+  padding-right: 0;
+  width: 35%;
+}
+.icon{
+  width: 15%;
+  font-size: 1.4em;
+}
+.icon:first-child{
+  margin-left: 30%;
+}
+.icon i{
+  color: #333;
+}
+.social{
+  margin-top: 10%;
+  text-align: center;
+}
+.social-icons{
+  margin-top: 0;
+}
+#mainMap{
+    height: 267px;
+    margin-top: 7%;
+    margin-left: 5%;
+}
+.get_directions{
+    background-color: grey;
+    margin-left: 5%;
+    height: 45px;
+    transform: translateY(-45px);
+    font-size: 1.7em;
+    font-weight: bold;
+    color: white;
+    text-align: center;
+    padding-top: 1%;
+    cursor: pointer;
+    display: none;
+}
+.get_directions_a{
+  color: white !important;
+}
+mat-form-field{
+  display: block !important;
+  padding-right: 5%;
+}
+.send{
+  float: right;
+  margin-right: 5%;
+}
+.address{
+  margin-left: 5%;
+  margin-top: 1%;
+  font-size: 1.2em;
+}
+.address span{
+  font-weight: bold;
+}
+.error{
+  margin: 0;
+  transform: translateY(-12px);
+  color:red;
+}
+.success{
+  margin: 0;
+  margin-top: 3%;
+  color:green;
+}
+@media(max-width:992px){
+        .allcontact{
+          height: 50%;
+        }
+        .send{
+          margin-bottom: 10%;
+        }
+        hr{
+          display: none;
+        }
+      }
+@media(min-width:992px) and (max-width:1325px) {
+  .genInfo{
+    font-size: 1.3em;
+}
+}

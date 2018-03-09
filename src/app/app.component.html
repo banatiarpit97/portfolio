@@ -1,0 +1,45 @@
+<!--Navbar -->
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#Navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" routerLink = '/home' >
+        <img src="assets/images/logo.png" class="logo">
+      </a>
+    </div>
+    <div class="collapse navbar-collapse" id="Navbar">
+      <ul class="nav navbar-nav">
+        <li>
+          <a routerLink = '/home' [ngClass] = "{active:title == 'home'}" class="home" >Home</a>
+        </li>
+        <li>
+          <a href="#" [ngClass] = "{active:title == 'about'}">About</a>
+        </li>
+        <li>
+          <a routerLink = '/projects' [ngClass] = "{active:title == 'projects'}" class="projects">Portfolio</a>
+        </li>
+        <li>
+          <a routerLink = '/contact' [ngClass] = "{active:title == 'contact'}">Contact</a>
+        </li>
+
+      </ul>
+
+    </div>
+  </div>
+</nav>
+<!--Navbar -->
+
+
+<router-outlet></router-outlet>
+
+<!--footer-->
+<div class="footer">
+  <div class="container">
+    <p>Arpit Banati &copy; 2017</p>
+  </div>
+</div>
+<!--footer-->

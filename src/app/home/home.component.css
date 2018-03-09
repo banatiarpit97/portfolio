@@ -1,0 +1,78 @@
+.heading{
+	color: white !important;
+	letter-spacing: 2px;
+	font-size: 67px !important;
+}
+.intro{
+	text-align: center;
+}
+.jumbotron{
+	background: transparent;
+	padding-top: 1%;
+	margin-bottom: 1%;
+
+}
+.intro{
+	/*width: 90%;*/
+}
+.intro .col-md-4 {
+	padding: 0 3.5%;
+}
+.intro .col-md-4 img{
+	height: 100px;
+}
+.intro .col-md-4 h2{
+	color: white;
+}
+.intro .col-md-4 p{
+	color: white;
+	font-size: 15px;
+}
+.plan_row{
+	padding: 2% 4%;
+	margin-top: 5%;
+}
+.intro .btn{
+	color: white;
+	background-color: rgba(0, 255, 184, 0.5);
+	font-size: 1.5em;
+	letter-spacing: 1.3px;
+	padding: 0.5% 6%;
+	border-radius: 10px;
+}
+.intro .btn:hover{
+	color: white !important;
+	background-color: rgba(0, 255, 184, 0.7);
+}
+.button_row{
+	margin-top: 5%;
+}
+.footer{
+    background-color: rgba(0,0,0,0.5);
+}
+
+@media(max-width: 768px){
+	.intro .col-md-4 img{
+	height: 70px;
+}
+}
+@media(max-width: 768px){
+	.heading{
+	font-size: 53px !important;
+}
+}
+@media(max-width: 543px){
+	.heading{
+	font-size: 47px !important;
+}
+}
+@media(max-width: 420px){
+	.heading{
+	font-size: 40px !important;
+}
+}
+@media(min-width: 992px) and (max-width: 1199px){
+	.intro h1{
+	font-size: 55px;
+ }
+}

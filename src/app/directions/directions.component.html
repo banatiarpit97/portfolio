@@ -1,0 +1,41 @@
+<!--Heading-->
+<h2 class="heading">Get Directions To Banati Developers</h2>
+<!--Heading-->
+
+<!--Input and submit-->
+<div class="container">
+
+  <div class="form-group">
+    <input class="form-control" placeholder="Enter location or click on the map" id="input_box" [(ngModel)]='location'>
+  </div>
+
+  <!-- <md-content layout-gt-sm="row" layout-padding class="input_row">
+    <section layout="row" layout-sm="column" layout-align="center center" layout-wrap class="get_directions_section">
+      <md-button class="md-raised md-primary get_directions_button ">Get Directions</md-button>
+    </section>
+
+  </md-content> -->
+
+      <button mat-raised-button color='primary' class="get_directions_button" (click)='getDirections()'>Get Directions</button>
+
+  <div class="both_addresses">
+    <div class="our_address">
+      <span class="our_address1">Our Address : </span>
+      <span class="our_address2">10/325 Sunder Vihar, New Delhi, 110087</span>
+    </div>
+    <div class="your_address hidden">
+      <span class="your_address1">Your Address : </span>
+      <span class="your_address2"></span>
+    </div>
+
+  </div>
+  <button mat-fab color='primary' matTooltip="Get current location" matTooltipPosition="below" class="get_cur_loc_btn" (click)='getCurrentLocation()'><i class="material-icons current_loc">location_on</i></button>
+</div>
+<!--Input and submit-->
+  <p class="row" id="result"></p>
+
+<!--The Map-->
+<div id="map" class="container">
+
+</div>
+<!--The Map-->
