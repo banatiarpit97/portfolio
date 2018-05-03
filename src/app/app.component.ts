@@ -9,7 +9,7 @@ import * as $ from 'jquery';
 export class AppComponent {
   constructor() {
     $(function () {
-      $('.navbar-collapse ul li a:not(.dropdown-toggle)').bind('click touchstart', function () {
+      $('.navbar-collapse ul li a:not(.dropdown-toggle)').bind('click', function () {
         $('.navbar-toggle:visible').click();
       });
     });

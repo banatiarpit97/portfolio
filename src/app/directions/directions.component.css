@@ -3,6 +3,10 @@
     transform: translate(1px, -4px);
 
 }
+.c1{
+  margin-top: 3% !important;
+  margin-bottom: 1% !important;
+}
 .get_cur_loc_btn{
     position: fixed;
     right: 0;
@@ -24,7 +28,7 @@ get_directions_button{
     text-align: center;
     font-weight: bold;
     margin-bottom: 0;
-    margin-top: 0;
+    margin-top: -1%;
     padding: 0.8% 5%;
     background: linear-gradient(white, #63e6c2);
 }
