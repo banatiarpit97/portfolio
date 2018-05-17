@@ -1,6 +1,6 @@
 <div>
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-<img src="assets/images/contact.jpg" class="contact">
+<img src="assets/images/contact.jpg" class="contact" alt="contact">
 <div class="container-fluid allcontact">
   <div class="row top">
     <div class="col-md-4">
@@ -77,7 +77,7 @@
         <textarea matInput placeholder="Message" matTextareaAutosize formControlName='message'></textarea>
       </mat-form-field>
 
-      <button mat-raised-button color='primary' class="send" type="submit" [disabled]='!mail.valid'>Send Mail</button>
+      <button mat-raised-button color='primary' class="send" type="submit" [disabled]='!mail.valid' name="sendmail">Send Mail</button>
       <p class="error" *ngIf='internalError'>There was some error, please try again later</p>
       <p class="success" *ngIf='success'>Response recorded</p>
       </form>

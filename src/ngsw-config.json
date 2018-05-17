@@ -21,6 +21,19 @@
     "resources": {
       "files": [
         "/assets/**"
+      ],
+      "urls": [
+         "https://fonts.googleapis.com/icon?family=Material+Icons",
+         "https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css",
+         "https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js",
+         "https://fonts.gstatic.com/s/materialicons/v37/flUhRq6tzZclQEJ-Vdg-IuiaDsNc.woff2",
+         "https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/fonts/fontawesome-webfont.eot?v=4.7.0",
+         "https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/fonts/fontawesome-webfont.eot?#iefix&v=4.7.0",
+         "https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/fonts/fontawesome-webfont.woff2?v=4.7.0",
+         "https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/http://fonts/fontawesome-webfont.woff?v=4.7.0",
+         "https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/http://fonts/fontawesome-webfont.ttf?v=4.7.0",
+         "https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/http://fonts/fontawesome-webfont.svg?v=4.7.0#fontawesomeregular"
+
       ]
     }
   }]

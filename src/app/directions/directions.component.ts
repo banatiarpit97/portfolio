@@ -67,6 +67,7 @@ export class DirectionsComponent implements OnInit {
     }
     var autocomplete = new google.maps.places.Autocomplete(input, inputOptions);
 
+    this.getCurrentLocation();
     // ----------------------------------------------------------------------------------
 
     this.map.addListener('click', function (event) {
@@ -130,6 +131,10 @@ export class DirectionsComponent implements OnInit {
       }
       this.directionsService.route(request, function (result, status) {
         if (status == google.maps.DirectionsStatus.OK) {
+          // console.log(typeof (Number(result.routes[0].legs[0].distance.text.split(" km"))), result.routes[0].legs[0].distance.text.split(" m")[0]);
+          // if (Number(result.routes[0].legs[0].distance.text.split(" km")[0]) < 1){
+              // global.getWalkingRoute(userLocation, destination);
+          // }
           global.resultPara = 'Great, you are just ' + result.routes[0].legs[0].distance.text + ' far from us. You can reach here in about ' + result.routes[0].legs[0].duration.text
           global.directionsDisplay.setDirections(result);
         }
@@ -139,6 +144,24 @@ export class DirectionsComponent implements OnInit {
         $('#result').html(global.resultPara);
       })
     }
+
+  getWalkingRoute(userLocation, destination) {
+    console.log('walking')
+    var global = this;
+    var request = {
+      origin: userLocation,
+      destination: destination,
+      travelMode: google.maps.TravelMode.WALKING,
+      unitSystem: google.maps.UnitSystem.METRIC
+    }
+    this.directionsService.route(request, function (result, status) {
+      if (status == google.maps.DirectionsStatus.OK) {
+        // console.log(typeof (Number(result.routes[0].legs[0].distance.text.split(" m"))), result.routes[0].legs[0].distance.text.split(" m")[0]);
+        // global.resultPara = 'Great, you are just ' + result.routes[0].legs[0].distance.text + ' far from us. You can reach here in about ' + result.routes[0].legs[0].duration.text
+        global.directionsDisplay.setDirections(result);
+      }
+    })
+  }
 
  geocodeLatLng(lat, lng) {
   var latlng = { lat: lat, lng: lng };

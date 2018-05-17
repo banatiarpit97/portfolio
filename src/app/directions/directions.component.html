@@ -16,7 +16,7 @@
 
   </md-content> -->
 
-      <button mat-raised-button color='primary' class="get_directions_button" (click)='getDirections()'>Get Directions</button>
+      <button mat-raised-button color='primary' class="get_directions_button" (click)='getDirections()' name="getdirections">Get Directions</button>
 
   <div class="both_addresses">
     <div class="our_address">
@@ -29,7 +29,7 @@
     </div>
 
   </div>
-  <button mat-fab color='primary' matTooltip="Get current location" matTooltipPosition="below" class="get_cur_loc_btn" (click)='getCurrentLocation()'><i class="material-icons current_loc">location_on</i></button>
+  <button mat-fab color='primary' matTooltip="Get current location" matTooltipPosition="below" class="get_cur_loc_btn" (click)='getCurrentLocation()' name="getlocation"><i class="material-icons current_loc">location_on</i></button>
 </div>
 <!--Input and submit-->
   <p class="row" id="result"></p>
