@@ -15,6 +15,10 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatCardModule, MatInputModule, MatButtonModule, MatSnackBarModule, MatTooltipModule } from '@angular/material';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 
+import { AngularFireModule } from 'angularfire2';
+import { AngularFireDatabaseModule } from 'angularfire2/database'
+import { AngularFireDatabase, AngularFireList } from 'angularfire2/database';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -30,9 +34,13 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
     BrowserAnimationsModule,
     ReactiveFormsModule,
     FormsModule,
-    MatCardModule, MatInputModule, MatButtonModule, MatSnackBarModule, MatTooltipModule
+    MatCardModule, MatInputModule, MatButtonModule, MatSnackBarModule, MatTooltipModule,
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFireDatabaseModule
   ],
-  providers: [],
+  providers: [
+    // AngularFireDatabase
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

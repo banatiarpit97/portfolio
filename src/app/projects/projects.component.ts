@@ -17,6 +17,7 @@ type = 'all';
       { name: "Snake Game", img: "assets/images/snake.png", link: "http://banati.thecompletewebhosting.com/Snake%20Game/", t: "games" },
       { name: "Stopwatch", img: "assets/images/stopwatch.png", link: "http://banati.thecompletewebhosting.com/Stopwatch-App/", t: "utilities" },
       { name: "Google homepage", img: "assets/images/google.png", link: "http://banati.thecompletewebhosting.com/Google-copy/Google%20project/app/", t: "extras" },
+      { name: "Hide YouTube end cards(chrome extension)", img: "assets/images/end_cards.png", link: "https://chrome.google.com/webstore/detail/hide-youtube-end-cards/jinenhpepbpkepablpjjchejlabbpken", t: "utilities" },      
       { name: "Facebook Homepage", img: "assets/images/facebook.png", link: "http://banati.thecompletewebhosting.com/Facebook-copy/Facebook%20project/", t: "extras" },
       { name: "Click Counter", img: "assets/images/clickcounter.png", link: "http://banati.thecompletewebhosting.com/Click-Counter/click%20counter/", t: "utilities" },
       { name: "Fruit Slice Game", img: "assets/images/fruitslice.png", link: "http://banati.thecompletewebhosting.com/Fruit-Slice-Game/", t: "games" },

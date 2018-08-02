@@ -3,6 +3,7 @@ import * as $ from 'jquery';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material';
 import { AppComponent } from '../app.component';
+import { AngularFireDatabase, AngularFireList } from 'angularfire2/database';
 declare let google: any;
 
 
@@ -19,7 +20,7 @@ export class ContactComponent implements OnInit {
   internalError = false;
   success = false;
 
-  constructor(@Inject(FormBuilder) fb: FormBuilder, public snackbar: MatSnackBar, public appComponent:AppComponent) {
+  constructor(@Inject(FormBuilder) fb: FormBuilder, public snackbar: MatSnackBar, public appComponent: AppComponent, private afd: AngularFireDatabase) {
     this.appComponent.title = "contact";
     this.mail = fb.group({
       name: ['', Validators.required],
@@ -86,40 +87,43 @@ export class ContactComponent implements OnInit {
   }
 
   sendMail(){
-    var global = this;
     console.log(this.mail.value);
-    $.ajax({
-      url:'http://banati.thecompletewebhosting.com/Portfolio/send_mail.php',
-      type:'POST',
-      data: { name: this.mail.value.name, email: this.mail.value.email, number: this.mail.value.number, subject: this.mail.value.regarding, message: this.mail.value.message},
-      success:function(data){
-        console.log(data);
-        if (data == "invalid email"){
-          global.invalidEmail = true;
-        }
-        if (data == 'invalid number'){
-          global.invalidNumber = true;
-          global.invalidEmail = false;
+    this.afd.list('/contact').push(this.mail.value);
+    this.mail.reset();
+    let sb = this.snackbar.open('Your response is recorded, we will get back to you shortly!', 'close');
 
-        }
-        if (data == 'error storing in database' || data == 'Error sending Email') {
-          global.internalError = true;
-          global.invalidNumber = false;
-          global.invalidEmail = false;
-        }
-        if (data == 'success') {
-          let sb = global.snackbar.open('Your response is recorded, we will get back to you shortly!', 'close');
-          global.success = true;
-          global.invalidEmail = false;
-          global.invalidNumber = false;
-          global.internalError = false;
-        }
-        global.mail.reset;
-      },
-      error:function(){
-        console.log('error');
-      }
-    })
+    // $.ajax({
+    //   url:'http://banati.thecompletewebhosting.com/Portfolio/send_mail.php',
+    //   type:'POST',
+    //   data: { name: this.mail.value.name, email: this.mail.value.email, number: this.mail.value.number, subject: this.mail.value.regarding, message: this.mail.value.message},
+    //   success:function(data){
+    //     console.log(data);
+    //     if (data == "invalid email"){
+    //       global.invalidEmail = true;
+    //     }
+    //     if (data == 'invalid number'){
+    //       global.invalidNumber = true;
+    //       global.invalidEmail = false;
+
+    //     }
+    //     if (data == 'error storing in database' || data == 'Error sending Email') {
+    //       global.internalError = true;
+    //       global.invalidNumber = false;
+    //       global.invalidEmail = false;
+    //     }
+    //     if (data == 'success') {
+    //       let sb = global.snackbar.open('Your response is recorded, we will get back to you shortly!', 'close');
+    //       global.success = true;
+    //       global.invalidEmail = false;
+    //       global.invalidNumber = false;
+    //       global.internalError = false;
+    //     }
+    //     global.mail.reset;
+    //   },
+    //   error:function(){
+    //     console.log('error');
+    //   }
+    // })
   }
 
 }
