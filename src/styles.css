@@ -12,6 +12,7 @@ body{
 }
 .navbar{
 	opacity: 0.5;
+	margin-bottom:0 !important;
 }
 .logo{
 	height: 30px;
