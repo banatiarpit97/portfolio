@@ -18,6 +18,7 @@ import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { AngularFireDatabase, AngularFireList } from 'angularfire2/database';
 import { ServiceWorkerModule } from '@angular/service-worker';
+import {  SlimLoadingBarModule } from 'ng2-slim-loading-bar';
 
 @NgModule({
   declarations: [
@@ -34,6 +35,7 @@ import { ServiceWorkerModule } from '@angular/service-worker';
     ReactiveFormsModule,
     FormsModule,
     MatCardModule, MatInputModule, MatButtonModule, MatSnackBarModule, MatTooltipModule,
+    SlimLoadingBarModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireDatabaseModule,
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })

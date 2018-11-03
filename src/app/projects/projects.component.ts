@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+
 import * as $ from 'jquery';
 import { AppComponent } from '../app.component';
+import { LoadingService } from '../loading.service';
 @Component({
   selector: 'app-projects',
   templateUrl: './projects.component.html',
@@ -10,7 +12,7 @@ export class ProjectsComponent implements OnInit {
 apps;
 type = 'all';
 
-  constructor(public appComponent:AppComponent) { 
+  constructor(public appComponent: AppComponent, public loadingService:LoadingService) { 
     this.appComponent.title = "projects";
     this.apps = [
       { name: "Tetris Game", img: "assets/images/tetris.png", link: "http://arpit-banati.epizy.com/tetris-game/", t: "games" },
