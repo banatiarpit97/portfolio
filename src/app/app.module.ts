@@ -17,6 +17,7 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { AngularFireDatabase, AngularFireList } from 'angularfire2/database';
+import { AngularFireStorageModule } from 'angularfire2/storage';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import {  SlimLoadingBarModule } from 'ng2-slim-loading-bar';
 
@@ -38,6 +39,7 @@ import {  SlimLoadingBarModule } from 'ng2-slim-loading-bar';
     SlimLoadingBarModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireDatabaseModule,
+    AngularFireStorageModule,
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
   ],
   providers: [

@@ -8,7 +8,6 @@ exports.sendContactMessage = functions.database.ref('/contact/{pushKey}').onWrit
         }
 
     const val = snapshot.val();
-    console.log(val)
     let html = '<table border="1">'+
                     '<tr><td>Name</td><td>'+val.name+'</td></tr>'+
                     '<tr><td>Email</td><td>'+val.email+'</td></tr>'+
@@ -25,6 +24,7 @@ exports.sendContactMessage = functions.database.ref('/contact/{pushKey}').onWrit
         subject: 'Website Contact Us',
         html: html
     };
+        
     return mailTransport.sendMail(mailOptions).then(() => {
         return console.log('Mail sent')
     });

@@ -13,10 +13,10 @@
         crossorigin="anonymous">
 
     <style>
-      html{
-          width: max-content;
-          margin: auto;
-      }
+    html{
+        width: max-content;
+        margin: auto;
+    }
     </style>
 </head>
 
@@ -26,6 +26,8 @@
 <!-- <a class="btn-floating btn-large waves-effect waves-light blue" style="position: absolute;right: 3%;bottom: 1%" id="download" href="http://banati.thecompletewebhosting.com/DownloadResumePdf.php/">
     <i class="material-icons">file_download</i>
 </a> -->
+    <!-- <img src="" alt="" id="myimg"> -->
+
 
 <div class="fixed-action-btn">
     <a class="btn-floating btn-large blue">
@@ -33,20 +35,65 @@
     </a>
     <ul>
         <li>
-            <a class="btn-floating" style="background-color: #00C2AE;" href="http://arpit-banati.epizy.com/resume/downloadPng.php">
+            <a class="btn-floating" id="png" style="background-color: #00C2AE;">
                 <i class="fas fa-image"></i>
             </a>
         </li>
         <li>
-            <a class="btn-floating" style="background-color: #00C2AE;" href="http://arpit-banati.epizy.com/resume/downloadPdf.php/">
+            <a class="btn-floating" id="pdf" style="background-color: #00C2AE;">
                 <i class="fas fa-file-pdf"></i>
             </a>
         </li>
     </ul>
 </div>
+    
+<script src="https://www.gstatic.com/firebasejs/5.5.8/firebase.js"></script>
 
+
+<script>
+    var config = {
+        apiKey: "AIzaSyATBEe9ML0rYU01-eF41Da8evqwRBY9icg",
+        authDomain: "arpit-banati.firebaseapp.com",
+        databaseURL: "https://arpit-banati.firebaseio.com",
+        projectId: "arpit-banati",
+        storageBucket: "arpit-banati.appspot.com",
+        messagingSenderId: "442706918461"
+    };
+    firebase.initializeApp(config);
+
+    function download() {
+        let type = this.id;
+        let name = `Arpit Banati.${type}`;
+        let file;
+        
+        var storage = firebase.storage();
+        var pathReference = storage.ref(name);
+
+        pathReference.getDownloadURL().then(function (url) {
+            this.fetch(url).then((res) => {
+                res.blob().then((blob) => {
+                    if (type == 'pdf') {
+                        file = new File([blob], name, { type: "application/pdf" });
+                    }
+                    else if(type == 'png'){
+                        file = new File([blob], name, { type: "image/png" });
+                    }
+                    saveAs(file, name)
+
+                })
+            })
+        }).catch(function (error) {
+            console.log(error)
+        });
+    }
+
+    document.querySelector("#png").addEventListener('click', download);
+    document.querySelector("#pdf").addEventListener('click', download);
+    
+</script>
+
+<script src="FileSaver.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
 
 <script>
@@ -54,6 +101,7 @@
             $('.fixed-action-btn').floatingActionButton();
     });
 </script>
+
 </body>
 
 </html>
