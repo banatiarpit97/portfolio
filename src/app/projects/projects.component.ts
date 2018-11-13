@@ -12,11 +12,12 @@ export class ProjectsComponent implements OnInit {
 apps;
 type = 'all';
 
-  constructor(public appComponent: AppComponent, public loadingService:LoadingService) { 
+  constructor(public appComponent: AppComponent, public loadingService: LoadingService) {
     this.appComponent.title = "projects";
     this.apps = [
       { name: "Tetris Game", img: "assets/images/tetris.png", link: "http://arpit-banati.epizy.com/tetris-game/", t: "games" },
       { name: "Snake Game", img: "assets/images/snake.png", link: "http://arpit-banati.epizy.com/Snake%20Game/", t: "games" },
+      { name: "MEAN Notes App", img: "assets/images/MEAN-notes.png", link: "https://angular-node-mysql-notes.herokuapp.com", t: "utilities" },
       { name: "Stopwatch", img: "assets/images/stopwatch.png", link: "http://arpit-banati.epizy.com/Stopwatch-App/", t: "utilities" },
       { name: "Google homepage", img: "assets/images/google.png", link: "http://arpit-banati.epizy.com/Google-copy/Google%20project/app/", t: "extras" },
       { name: "Hide YouTube end cards(chrome extension)", img: "assets/images/end_cards.png", link: "https://chrome.google.com/webstore/detail/hide-youtube-end-cards/jinenhpepbpkepablpjjchejlabbpken", t: "utilities" },      
@@ -35,10 +36,8 @@ type = 'all';
       { name: "Bootsrap Form", img: "assets/images/form.png", link: "http://arpit-banati.epizy.com/Bootstrap-form/", t: "extras" },
       { name: "App landing page", img: "assets/images/applanding.png", link: "http://arpit-banati.epizy.com/App-Landing-Page/", t: "extras" },
       { name: "Maths Tutorial", img: "assets/images/maths_course.png", link: "http://arpit-banati.epizy.com/Maths-Tutorial-website/", t: "extras" }
-      
     ];
 
-    
   }
 
   ngOnInit() {
