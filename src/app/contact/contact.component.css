@@ -8,7 +8,10 @@
 .allcontact{
   background: linear-gradient(#fff,#63e6c2);
   height: 75%;
-  height: 600px;
+  /* height: 600px; */
+}
+.allcontact .row{
+  margin-bottom: 3%;
 }
 .top{
   margin-top: 2%;
@@ -141,8 +144,13 @@ mat-form-field{
           display: none;
         }
       }
+@media(max-width:550px){
+        .genInfo{
+            font-size: 1.2em;
+        }
+}
 @media(min-width:992px) and (max-width:1325px) {
   .genInfo{
     font-size: 1.3em;
 }
-}
+} 
