@@ -5,6 +5,10 @@
 /dist-server
 /tmp
 /out-tsc
+/src/assets/*
+!/src/assets/icons
+!/src/assets/images
+!/src/assets/resume
 
 # dependencies
 /node_modules
