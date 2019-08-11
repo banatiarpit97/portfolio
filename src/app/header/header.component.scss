@@ -1,0 +1,44 @@
+.navbar{
+	opacity: 0.5;
+	margin-bottom:0 !important;
+	@media (min-width: 768px) {
+		height: 68px;
+	}
+}
+.navbar-brand {
+	@media (max-width: 767px) {
+		padding: 10px 15px;
+	}
+}
+.logo{
+	height: 30px;
+}
+.navbar ul li{
+	font-size: 17px;
+	padding: 8px 0;
+	color: white;
+	margin-right: 15px;
+}
+.navbar ul li:hover{
+	border-bottom-style: solid;
+	border-bottom-width: 1px;
+	border-bottom-color: #00ffb8; 
+}
+.navbar ul li a{
+	color: white;
+}
+.navbar ul li a:hover{
+	color: white;
+}
+.active{
+    color: #078A63 !important; 
+    font-size: 1.3em !important;
+	font-weight: bold;
+	cursor: default;	
+}
+.collapse {
+	display: block;
+	height: 0;
+	overflow: hidden;
+	// transition: height 5s;
+}

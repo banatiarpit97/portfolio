@@ -1,9 +1,8 @@
 {
-  "name": "portfolio",
-  "short_name": "portfolio",
-  "theme_color": "#00ffb7",
-  "background_color": "#00ffb7",
-  "color":"#ffffff",
+  "name": "new-portfolio",
+  "short_name": "new-portfolio",
+  "theme_color": "#1976d2",
+  "background_color": "#fafafa",
   "display": "standalone",
   "scope": "/",
   "start_url": "/",

@@ -3,14 +3,14 @@ import * as $ from 'jquery';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material';
 import { AppComponent } from '../app.component';
-import { AngularFireDatabase, AngularFireList } from 'angularfire2/database';
+import { AngularFireDatabase } from '@angular/fire/database';
 declare let google: any;
 
 
 @Component({
   selector: 'app-contact',
   templateUrl: './contact.component.html',
-  styleUrls: ['./contact.component.css']
+  styleUrls: ['./contact.component.scss']
 })
 
 export class ContactComponent implements OnInit {
@@ -20,8 +20,12 @@ export class ContactComponent implements OnInit {
   internalError = false;
   success = false;
 
-  constructor(@Inject(FormBuilder) fb: FormBuilder, public snackbar: MatSnackBar, public appComponent: AppComponent, private afd: AngularFireDatabase) {
-    this.appComponent.title = "contact";
+  constructor(@Inject(FormBuilder) fb: FormBuilder,
+              public snackbar: MatSnackBar,
+              public appComponent: AppComponent,
+              private afd: AngularFireDatabase
+  ) {
+    this.appComponent.title = 'contact';
     this.mail = fb.group({
       name: ['', Validators.required],
       number: ['', Validators.required],
@@ -29,31 +33,15 @@ export class ContactComponent implements OnInit {
       regarding: ['', Validators.required],
       message: ['', Validators.required]
     });
-   }
+  }
 
   ngOnInit() {
     this.initMap();
-    $('#mainMap').mouseover(function(){
-      $('.get_directions').css('display', 'block');
-      $('.address').css('transform', 'translateY(-45px)');
-    })
-    $('#mainMap').mouseleave(function () {
-      $('.get_directions').css('display', 'none');
-    $('.address').css('transform', 'translateY(7px)');
-    })
-    $('.get_directions').mouseover(function(){
-      $('.get_directions').css('display', 'block');
-      $('.address').css('transform', 'translateY(-45px)');
-    })
-    $('.get_directions').mouseleave(function () {
-      $('.get_directions').css('display', 'none');
-      $('.address').css('transform', 'translateY(7px)');
-    })
   }
 
-  initMap(){
-    var destination = { lat: 28.661847, lng: 77.089045 };
-    var mapProperties = {
+  initMap() {
+    const destination = { lat: 28.661847, lng: 77.089045 };
+    const mapProperties = {
       center: destination,
       zoom: 13,
       panControl: true,
@@ -64,66 +52,33 @@ export class ContactComponent implements OnInit {
       overviewMapControl: true,
       rotateControl: true
     };
-    var map = new google.maps.Map(document.getElementById("mainMap"), mapProperties);
+    const map = new google.maps.Map(document.getElementById('mainMap'), mapProperties);
 
-    var destinationMarkerProerties = {
+    const destinationMarkerProerties = {
       position: destination,
       animation: google.maps.Animation.BOUNCE,
-      map: map
-    }
-    var destinationMarker = new google.maps.Marker(destinationMarkerProerties);
+      map
+    };
+    const destinationMarker = new google.maps.Marker(destinationMarkerProerties);
     // destinationMarker.setMap(map);
 
-    var destinationInfoWindow = new google.maps.InfoWindow({
-      content: "Banati Developers"
-    })
+    const destinationInfoWindow = new google.maps.InfoWindow({
+      content: 'Banati Developers'
+    });
 
-    google.maps.event.addListener(destinationMarker, 'mouseover', function () {
+    google.maps.event.addListener(destinationMarker, 'mouseover', () => {
       destinationInfoWindow.open(map, destinationMarker);
-    })
-    google.maps.event.addListener(destinationMarker, 'mouseout', function () {
+    });
+    google.maps.event.addListener(destinationMarker, 'mouseout', () => {
       destinationInfoWindow.close();
-    })
+    });
   }
 
-  sendMail(){
-    console.log(this.mail.value);
+  sendMail(mail, formDirective) {
     this.afd.list('/contact').push(this.mail.value);
-    this.mail.reset();
-    let sb = this.snackbar.open('Your response is recorded, we will get back to you shortly!', 'close');
-
-    // $.ajax({
-    //   url:'http://banati.thecompletewebhosting.com/Portfolio/send_mail.php',
-    //   type:'POST',
-    //   data: { name: this.mail.value.name, email: this.mail.value.email, number: this.mail.value.number, subject: this.mail.value.regarding, message: this.mail.value.message},
-    //   success:function(data){
-    //     console.log(data);
-    //     if (data == "invalid email"){
-    //       global.invalidEmail = true;
-    //     }
-    //     if (data == 'invalid number'){
-    //       global.invalidNumber = true;
-    //       global.invalidEmail = false;
-
-    //     }
-    //     if (data == 'error storing in database' || data == 'Error sending Email') {
-    //       global.internalError = true;
-    //       global.invalidNumber = false;
-    //       global.invalidEmail = false;
-    //     }
-    //     if (data == 'success') {
-    //       let sb = global.snackbar.open('Your response is recorded, we will get back to you shortly!', 'close');
-    //       global.success = true;
-    //       global.invalidEmail = false;
-    //       global.invalidNumber = false;
-    //       global.internalError = false;
-    //     }
-    //     global.mail.reset;
-    //   },
-    //   error:function(){
-    //     console.log('error');
-    //   }
-    // })
+    mail.reset();
+    formDirective.resetForm();
+    const sb = this.snackbar.open('Your response is recorded, we will get back to you shortly!', 'close');
   }
 
 }

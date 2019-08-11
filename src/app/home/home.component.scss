@@ -8,12 +8,9 @@
 }
 .jumbotron{
 	background: transparent;
-	padding-top: 1%;
+	padding-top: 3%;
 	margin-bottom: 1%;
 
-}
-.intro{
-	/*width: 90%;*/
 }
 .intro .col-md-4 {
 	padding: 0 3.5%;
@@ -38,7 +35,8 @@
 	font-size: 1.5em;
 	letter-spacing: 1.3px;
 	padding: 0.5% 6%;
-	border-radius: 10px;
+	border-radius: 50px;
+	outline: none;
 }
 .intro .btn:hover{
 	color: white !important;

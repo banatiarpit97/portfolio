@@ -1,11 +1,10 @@
 .current_loc{
     font-size: 250%;
     transform: translate(1px, -4px);
-
 }
 .c1{
   margin-top: 3% !important;
-  margin-bottom: 1% !important;
+  margin-bottom: 4% !important;
 }
 .get_cur_loc_btn{
     position: fixed;
@@ -60,12 +59,12 @@ md-content{
     margin-bottom: 1%;
 }
 #map{
-    height: 600px;
+    height: 480px;
     margin-top: 0%;
 }
 #result{
     font-size: 2em;
-    margin-bottom: 0;
+    margin: 0;
     text-align: center;
     clear: both;
     color: white;

@@ -1,39 +1,41 @@
+.contact-wrapper {
+  height: calc(100vh - 68px);
+}
 .navbar{
   margin-bottom: 0 !important;
 }
 .contact{
-  height: 250px;
+  height: 35%;
   width: 100%;
 }
 .allcontact{
   background: linear-gradient(#fff,#63e6c2);
-  height: 75%;
-  /* height: 600px; */
-}
-.allcontact .row{
-  margin-bottom: 3%;
+  height: 65%;
+  @media (max-width: 991px){
+    height: auto;
+  }
 }
 .top{
-  margin-top: 2%;
+  margin-top: 3%;
 }
-.allcontact .col-md-4{
-  /*text-align: center;*/
-  /*font-size: 1.5em;*/
-}
-.allcontact .heading{
+.heading{
   text-align: center;
-  font-size: 2.3em;
+  font-size: 2em;
   margin-top: 5%;
+  span {
+    padding-left: 10px;
+  }
 }
 .allcontact .heading .material-icons{
   margin-right: 2%;
   transform: translateY(2px);
 }
-.allcontact hr{
+hr{
   width: 2px;
   border-width: 140px;
   position: absolute;
-  border-color: #dad7d7
+  border-color: #dad7d7;
+  transform: translateX(-15px);
 }
 md-content{
   background-color: transparent;
@@ -45,18 +47,18 @@ md-input-container .md-input{
   width: 70%;
 }
 .mail form{
-  padding-left: 10%;
-}
-.contact{
-  height: 300px;
+  padding: 0 5%;
 }
 i.material-icons{
   margin: 0 !important;
 }
 .genInfo{
-  padding-left: 10%;
-    font-size: 1.6em;
-    margin-top: 7%;
+  padding: 0 5%;
+  font-size: 1.6em;
+  margin-top: 7%;
+  @media (max-width: 991px){
+    margin-top: 4%;
+  }
 }
 .genInfo .row{
   margin-top: 3%;
@@ -69,55 +71,72 @@ i.material-icons{
   padding-right: 0;
   width: 35%;
 }
-.icon{
-  width: 15%;
-  font-size: 1.4em;
-}
-.icon:first-child{
-  margin-left: 30%;
-}
-.icon i{
-  color: #333;
+.icons{
+  text-align: center;
+  i {
+    font-size: 2em;
+    color: #333;
+    width: 15%;
+  }
 }
 .social{
   margin-top: 10%;
   text-align: center;
+  font-size: 18px;
+  @media (max-width: 991px){
+    margin-top: 7%;
+  }
 }
 .social-icons{
   margin-top: 0;
 }
+.reach-us {
+  height: 40vh;
+  padding: 7% 5% 2% 5%;
+  &:hover .get_directions {
+    opacity: 1;
+  }
+  @media (max-width: 991px){
+    margin-left: 0;
+    padding-top: 2%;
+  }
+}
+.map-wrapper {
+  width: 100%;
+  height: 30vh;
+  position: relative;
+}
 #mainMap{
-    height: 267px;
-    margin-top: 7%;
-    margin-left: 5%;
+  width: 100%;
+  height: 100%;
 }
 .get_directions{
-    background-color: grey;
-    margin-left: 5%;
+    background-color: rgba(0,0,0,0.7);
     height: 45px;
-    transform: translateY(-45px);
     font-size: 1.7em;
     font-weight: bold;
     color: white;
     text-align: center;
-    padding-top: 1%;
+    padding-top: 1.5%;
     cursor: pointer;
-    display: none;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    opacity: 0;
+    transition: opacity 0.5s;
 }
 .get_directions_a{
   color: white !important;
 }
 mat-form-field{
   display: block !important;
-  padding-right: 5%;
 }
 .send{
   float: right;
-  margin-right: 5%;
 }
 .address{
-  margin-left: 5%;
-  margin-top: 1%;
+  margin-top: 2%;
   font-size: 1.2em;
 }
 .address span{
@@ -133,15 +152,19 @@ mat-form-field{
   margin-top: 3%;
   color:green;
 }
-@media(max-width:992px){
-        .allcontact{
-          height: 50%;
-        }
+@media(max-width:991px){
         .send{
           margin-bottom: 10%;
         }
         hr{
-          display: none;
+          border-width: 70px;
+          border-color: white;
+          transform: rotate(-90deg);
+          top: -69px;
+          left: 50%;
+        }
+        .heading {
+          margin-top: 10%;
         }
       }
 @media(max-width:550px){

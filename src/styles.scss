@@ -1,0 +1,18 @@
+/* You can add global styles to this file, and also import other style files */
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+@import '~bootstrap/dist/css/bootstrap.min.css';
+@import '../node_modules/ng2-slim-loading-bar/style.css';  
+html{
+	background: url(assets/images/background.jpg) no-repeat center center;
+	background-attachment: fixed;
+	background-size: 110% 100%;
+	font-family: Arvo, serif;
+	height: 100%;
+}
+body {
+	margin: 0;
+	font-family: Roboto, "Helvetica Neue", sans-serif;
+	background-color: transparent;
+	height: 100%;
+}
+

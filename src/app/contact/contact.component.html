@@ -1,87 +1,87 @@
-<div>
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-<img src="assets/images/contact.jpg" class="contact" alt="contact">
-<div class="container-fluid allcontact">
-  <div class="row top">
-    <div class="col-md-4">
-      <div class="heading">
-        <i class="material-icons">location_on</i>
-        <span>Reach Us</span>
+<div class="contact-wrapper">
+  <img src="assets/images/contact.jpg" class="contact" alt="contact">
+  <div class="container-fluid allcontact">
+    <div class="row top">
+      <div class="col-md-4">
+        <div class="heading">
+          <i class="material-icons">location_on</i>
+          <span>Reach Us</span>
+        </div>
+        <div class="reach-us">
+          <div class="map-wrapper">
+            <div id="mainMap"></div>
+            <a class="get_directions_a" routerLink='/directions'><div class="get_directions">Get Directions</div></a>
+          </div>
+          <p class="address">Address: <span>10/325 Sunder Vihar, outer ring road, New Delhi - 110087</span></p>
+        </div>
       </div>
-        <div id="mainMap"></div>
-        <a class="get_directions_a" routerLink='/directions'><div class="get_directions">Get Directions</div></a>
-        <p class="address">Address: <span>10/325 Sunder Vihar, outer ring road, New Delhi - 110087</span></p>
-    </div>
-    <div class="col-md-4">
-      <hr>
-      <div class="heading">
-        <i class="material-icons">info</i>
-        <span>General</span>
-      </div>
-      <div class="genInfo">
-      <div class="row ">
-        <div class="col-xs-5 name">Name&nbsp;:</div>
-        <div class="col-xs-7 value">Arpit Banati</div>
-      </div>
-      <div class="row">
-        <div class="col-xs-4">Number&nbsp; :</div>
-        <div class="col-xs-8 value">+91&nbsp;9582342112</div>
-      </div>
-      <div class="row">
-        <div class="col-xs-4">Email&nbsp; :</div>
-        <div class="col-xs-8 value">arpit@banati.in
-          <br>arpitbanati97@gmail.com</div>
-      </div>
+      <div class="col-md-4">
+        <hr>
+        <div class="heading">
+          <i class="material-icons">info</i>
+          <span>Know Us</span>
+        </div>
+        <div class="genInfo">
+          <div class="row ">
+            <div class="col-xs-4">Name&nbsp;:</div>
+            <div class="col-xs-8 value">Arpit Banati</div>
+          </div>
+          <div class="row">
+            <div class="col-xs-4">Number&nbsp; :</div>
+            <div class="col-xs-8 value">+91&nbsp;9582342112</div>
+          </div>
+          <div class="row">
+            <div class="col-xs-4">Email&nbsp; :</div>
+            <div class="col-xs-8 value">arpit@banati.in
+              <br>arpitbanati97@gmail.com
+            </div>
+          </div>
+        </div>
+        
+        <div class="row social-icons">
+          <p class="social">Contact on Social Media</p>
+          <div class="icons">
+            <a href="https://www.facebook.com/arpitbanati97" target="_blank"><i class="fa fa-facebook-square"></i></a>
+            <a href=""><i class="fa fa-twitter-square"></i></a>
+            <a href="https://www.linkedin.com/in/arpit-banati-313113147/" target="_blank"><i class="fa fa-linkedin"></i></a>
+          </div>
+        </div>
 
-      <p class="social">Contact on Social Media</p>
-      <div class="row social-icons">
-        <div class="col-xs-4 icon">
-          <a href="https://www.facebook.com/arpitbanati97" target="_blank"><i class="fa fa-facebook-square"></i></a>
-        </div>
-        <div class="col-xs-4 icon">
-          <a href=""><i class="fa fa-twitter-square"></i></a>
-        </div>
-        <div class="col-xs-4 icon">
-          <a href="https://www.linkedin.com/in/arpit-banati-313113147/" target="_blank"><i class="fa fa-linkedin"></i></a>
-        </div>
       </div>
-      </div>
-
-    </div>
-    <div class="col-md-4 mail">
-      <hr>
-      <div class="heading">
-        <i class="material-icons">email</i>
-        <span>Mail Us</span>
-      </div>
-      <form [formGroup]='mail' (ngSubmit)='sendMail()' id="mail">
+      <div class="col-md-4 mail">
+        <hr>
+        <div class="heading">
+          <i class="material-icons">email</i>
+          <span>Mail Us</span>
+        </div>
+        <form [formGroup]='mail' #formDirective="ngForm" (ngSubmit)='sendMail(mail, formDirective)' id="mail">
+          <mat-form-field >
+            <input matInput placeholder="Name" formControlName='name'>
+          </mat-form-field>
+        
         <mat-form-field >
-          <input matInput placeholder="Name" formControlName='name'>
+          <input type ='email' matInput placeholder="Email" formControlName='email'>
         </mat-form-field>
-      
-      <mat-form-field >
-        <input type ='email' matInput placeholder="Email" formControlName='email'>
-      </mat-form-field>
-        <p *ngIf='invalidEmail' class="error">Invalid email</p>
-      
-      <mat-form-field>
-        <input type="number" matInput placeholder="Mobile Number" formControlName='number'>
-      </mat-form-field>
-      <p *ngIf='invalidNumber' class="error">Invalid mobile number</p>
+          <p *ngIf='invalidEmail' class="error">Invalid email</p>
+        
+        <mat-form-field>
+          <input type="number" matInput placeholder="Mobile Number" formControlName='number'>
+        </mat-form-field>
+        <p *ngIf='invalidNumber' class="error">Invalid mobile number</p>
 
-      <mat-form-field>
-        <input type="text" matInput placeholder="Regarding" formControlName='regarding'>
-      </mat-form-field>
+        <mat-form-field>
+          <input type="text" matInput placeholder="Regarding" formControlName='regarding'>
+        </mat-form-field>
 
-      <mat-form-field>
-        <textarea matInput placeholder="Message" matTextareaAutosize formControlName='message'></textarea>
-      </mat-form-field>
+        <mat-form-field>
+          <textarea matInput placeholder="Message" matTextareaAutosize formControlName='message'></textarea>
+        </mat-form-field>
 
-      <button mat-raised-button color='primary' class="send" type="submit" [disabled]='!mail.valid' name="sendmail">Send Mail</button>
-      <p class="error" *ngIf='internalError'>There was some error, please try again later</p>
-      <p class="success" *ngIf='success'>Response recorded</p>
-      </form>
+        <button mat-raised-button color='primary' class="send" type="submit" [disabled]='!mail.valid' name="sendmail">Send Mail</button>
+        <p class="error" *ngIf='internalError'>There was some error, please try again later</p>
+        <p class="success" *ngIf='success'>Response recorded</p>
+        </form>
+      </div>
     </div>
   </div>
-</div>
 </div>

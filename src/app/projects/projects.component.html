@@ -30,14 +30,14 @@
 <div class="container apps">
   <div class="row">
     <ng-container *ngFor="let app of apps">
-    <div class="col-lg-3 col-md-4 col-xs-6" *ngIf = "app.t == type||type =='all'">
-      <mat-card class="md-whiteframe-3dp cover" layout>
-        <a href={{app.link}} target="_blank">
-          <img src={{app.img}} class="image" alt={{app.name}}>
-          <h2 class="name">{{app.name}}</h2>
-        </a>
-      </mat-card>
-    </div>
+      <div class="col-lg-3 col-md-4 col-xs-6" *ngIf = "app.type === type||type === 'all'">
+        <mat-card class="md-whiteframe-3dp cover" layout>
+          <a href={{app.link}} target="_blank">
+            <img src={{app.img}} class="image" alt={{app.name}}>
+            <h2 class="name">{{app.name}}</h2>
+          </a>
+        </mat-card>
+      </div>
     </ng-container>
   </div>
 </div>

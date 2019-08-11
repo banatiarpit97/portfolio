@@ -12,25 +12,18 @@ import {
 export class LoadingService {
 
   constructor(private lBar: SlimLoadingBarService,
-      private _router: Router) {
-      this._router.events.subscribe((event: Event) => {
-        // console.log(event);
+              private router: Router) {
+      this.router.events.subscribe((event: Event) => {
         this.loadingBarInterceptor(event);
       });
     }
 
   private loadingBarInterceptor(event: Event) {
     if (event instanceof NavigationStart) {
-      // console.log(1);
-      // this.lBar.visible = true;
       this.lBar.height = '4px';
       this.lBar.start();
-      // setTimeout(() => {
-      // this.lBar.complete();
-      // }, 3000);
     }
     if (event instanceof NavigationEnd) {
-      // console.log(2);
       this.lBar.complete();
     }
   }
