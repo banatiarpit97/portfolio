@@ -3,11 +3,13 @@
 @import '~bootstrap/dist/css/bootstrap.min.css';
 @import '../node_modules/ng2-slim-loading-bar/style.css';  
 html{
-	background: url(assets/images/background.jpg) no-repeat center center;
+	background: url(assets/images/background.jpg);
 	background-attachment: fixed;
 	background-size: 110% 100%;
 	font-family: Arvo, serif;
-	height: 100%;
+	background-position: center center;
+    background-attachment: fixed;
+    background-size: cover;
 }
 body {
 	margin: 0;
