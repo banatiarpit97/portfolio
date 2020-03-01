@@ -1,7 +1,7 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import * as $ from 'jquery';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { MatSnackBar } from '@angular/material';
+import {MatSnackBar} from '@angular/material/snack-bar';
 import { AppComponent } from '../app.component';
 import { AngularFireDatabase } from '@angular/fire/database';
 declare let google: any;
