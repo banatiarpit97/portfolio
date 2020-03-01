@@ -4,6 +4,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import {MatSnackBar} from '@angular/material/snack-bar';
 import { AppComponent } from '../app.component';
 import { AngularFireDatabase } from '@angular/fire/database';
+import 'firebase/database';
 declare let google: any;
 
 

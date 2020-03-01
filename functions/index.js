@@ -1,11 +1,12 @@
 const functions = require('firebase-functions');
 const nodemailer = require('nodemailer');
+const smtpTransport = require('nodemailer-smtp-transport');
 
-exports.sendContactMessage = functions.database.ref('/contact/{pushKey}').onWrite(event => {
-    const snapshot = event.data;
-        if (snapshot.previous.val() || !snapshot.val().name) {
-            return;
-        }
+exports.sendContactMessage = functions.database.ref('/contact/{pushKey}').onCreate(snapshot => {
+    // console.log(snapshot, snapshot.val())
+        // if (snapshot.previous.val() || !snapshot.val().name) {
+        //     return;
+        // }
 
     const val = snapshot.val();
     let html = '<table border="1">'+
@@ -18,14 +19,25 @@ exports.sendContactMessage = functions.database.ref('/contact/{pushKey}').onWrit
 
     const gmailEmail = encodeURIComponent(functions.config().gmail.email);
     const gmailPassword = encodeURIComponent(functions.config().gmail.password);
-    const mailTransport = nodemailer.createTransport(`smtps://${gmailEmail}:${gmailPassword}@smtp.gmail.com`);
+    const mailTransport = nodemailer.createTransport(smtpTransport({
+        service: 'gmail',
+        auth: {
+            user: gmailEmail,
+            pass: gmailPassword
+        }
+    }));
+    // `smtps://${gmailEmail}:${gmailPassword}@smtp.gmail.com`);
     const mailOptions = {
-        to: 'banatiarpit97@yahoo.co.in',
+        to: 'arpitbanati97@gmail.com',
         subject: 'Website Contact Us',
         html: html
     };
         
-    return mailTransport.sendMail(mailOptions).then(() => {
-        return console.log('Mail sent')
+    return mailTransport.sendMail(mailOptions)
+    .then(() => {
+        return console.log('Mail sent');
+    })
+    .catch((err) => {
+        return console.log(err, err.message);
     });
 });

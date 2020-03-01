@@ -1,5 +1,14 @@
 {
   "projects": {
     "default": "arpit-banati"
+  },
+  "targets": {
+    "arpit-banati": {
+      "hosting": {
+        "new-portfolio": [
+          "arpit-banati"
+        ]
+      }
+    }
   }
 }
