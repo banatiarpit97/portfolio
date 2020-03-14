@@ -19,18 +19,21 @@ exports.sendContactMessage = functions.database.ref('/contact/{pushKey}').onCrea
 
     const gmailEmail = encodeURIComponent(functions.config().gmail.email);
     const gmailPassword = encodeURIComponent(functions.config().gmail.password);
-    const mailTransport = nodemailer.createTransport(smtpTransport({
-        service: 'gmail',
+
+    const mailTransport = nodemailer.createTransport({
+        host: 'smtp.gmail.com',
+        secure: true, 
+	port: 465,
         auth: {
-            user: gmailEmail,
+            user: 'arpitbanati97@gmail.com',
             pass: gmailPassword
         }
-    }));
+    });
     // `smtps://${gmailEmail}:${gmailPassword}@smtp.gmail.com`);
     const mailOptions = {
         to: 'arpitbanati97@gmail.com',
         subject: 'Website Contact Us',
-        html: html
+        html
     };
         
     return mailTransport.sendMail(mailOptions)
