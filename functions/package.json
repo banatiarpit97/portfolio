@@ -11,8 +11,8 @@
   },
   "dependencies": {
     "firebase": "^5.5.8",
-    "firebase-admin": "~5.8.1",
-    "firebase-functions": "^0.8.1",
+    "firebase-admin": "~11.4.1",
+    "firebase-functions": "^4.1.1",
     "nodemailer": "^4.6.7"
   },
   "devDependencies": {
